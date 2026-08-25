@@ -7,16 +7,30 @@
  */
 
 /**
- * The six activityType stubs the RAG pipeline emits. When D110's register hardens,
- * `remap()` swaps these to register URIs at emission time.
+ * activityType stubs emitted by Voyager pipelines.
+ *
+ * Layer 2 (RAG pipeline, main plan): connect | extract | chunk | embed | retrieve | generate.
+ * Layer 1 (HQ-side FAS enrichment, Appendix A): geotag | classify-commodity |
+ * classify-region | nlp-extract-entities | ocr | field-normalize.
+ *
+ * When D110's register hardens, `remap()` swaps any of these to register URIs
+ * at emission time — the shape is stable across both layers.
  */
 export type ActivityType =
+  // Layer 2 — RAG pipeline
   | "connect"
   | "extract"
   | "chunk"
   | "embed"
   | "retrieve"
-  | "generate";
+  | "generate"
+  // Layer 1 — HQ-side FAS enrichment ops (CFP §5.1 geospatial-ops alignment)
+  | "geotag"
+  | "classify-commodity"
+  | "classify-region"
+  | "nlp-extract-entities"
+  | "ocr"
+  | "field-normalize";
 
 /** Voyager-internal namespace for activityType URIs, remapped to D110 at demo time. */
 export const VOYAGER_ACTIVITY_NS = "https://voyager.ogc/prov/activity/" as const;

@@ -93,12 +93,20 @@ function validate(r: ProvRecord): void {
 }
 
 const ACTIVITY_TYPES = new Set<ActivityType>([
+  // Layer 2 — RAG pipeline
   "connect",
   "extract",
   "chunk",
   "embed",
   "retrieve",
   "generate",
+  // Layer 1 — HQ-side FAS enrichment
+  "geotag",
+  "classify-commodity",
+  "classify-region",
+  "nlp-extract-entities",
+  "ocr",
+  "field-normalize",
 ]);
 
 // Accepts ISO 8601 with Z or ±HH:MM offset (Voyager feed provenance uses -08:00 etc).
