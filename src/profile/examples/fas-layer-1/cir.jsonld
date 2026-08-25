@@ -1,0 +1,210 @@
+{
+  "@context": {
+    "voyager": "urn:voyager:prov:",
+    "prov": "http://www.w3.org/ns/prov#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "fasSource": "cir",
+  "fasSourceName": "Commodity Intelligence Reports",
+  "hadPrimarySource": {
+    "@id": "https://docs.google.com/presentation/d/1IybpPfUqDYji0ge-X0n165gMV8pU2UqlZQFKxIykk5k",
+    "deckSlides": "20"
+  },
+  "activities": [
+    {
+      "@context": {
+        "prov": "http://www.w3.org/ns/prov#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "voyager": "urn:voyager:prov:"
+      },
+      "@id": "urn:voyager:prov:activity:d9603cc660dcf895b8187af58e7557c8",
+      "@type": "prov:Activity",
+      "prov:type": {
+        "@id": "https://voyager.ogc/prov/activity/ocr"
+      },
+      "prov:wasAssociatedWith": {
+        "@id": "urn:voyager:agent:fas-upstream:ocr"
+      },
+      "prov:used": [
+        {
+          "@id": "urn:voyager:prov:entity:fas-source-raw:cir"
+        }
+      ],
+      "prov:generated": [
+        {
+          "@id": "urn:voyager:prov:entity:fas-catalog:cir"
+        }
+      ],
+      "prov:startedAtTime": {
+        "@value": "2026-05-01T00:00:00Z",
+        "@type": "xsd:dateTime"
+      },
+      "prov:endedAtTime": {
+        "@value": "2026-05-01T00:00:01Z",
+        "@type": "xsd:dateTime"
+      },
+      "extra": {
+        "declarative": true,
+        "hadPrimarySource": "https://docs.google.com/presentation/d/1IybpPfUqDYji0ge-X0n165gMV8pU2UqlZQFKxIykk5k",
+        "deckSlides": "20",
+        "fasSource": "cir"
+      }
+    },
+    {
+      "@context": {
+        "prov": "http://www.w3.org/ns/prov#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "voyager": "urn:voyager:prov:"
+      },
+      "@id": "urn:voyager:prov:activity:5f058526a566637def3187477a46c3d1",
+      "@type": "prov:Activity",
+      "prov:type": {
+        "@id": "https://voyager.ogc/prov/activity/nlp-extract-entities"
+      },
+      "prov:wasAssociatedWith": {
+        "@id": "urn:voyager:agent:fas-upstream:nlp-extract-entities"
+      },
+      "prov:used": [
+        {
+          "@id": "urn:voyager:prov:entity:fas-source-raw:cir"
+        }
+      ],
+      "prov:generated": [
+        {
+          "@id": "urn:voyager:prov:entity:fas-catalog:cir"
+        }
+      ],
+      "prov:startedAtTime": {
+        "@value": "2026-05-01T00:00:00Z",
+        "@type": "xsd:dateTime"
+      },
+      "prov:endedAtTime": {
+        "@value": "2026-05-01T00:00:01Z",
+        "@type": "xsd:dateTime"
+      },
+      "extra": {
+        "declarative": true,
+        "hadPrimarySource": "https://docs.google.com/presentation/d/1IybpPfUqDYji0ge-X0n165gMV8pU2UqlZQFKxIykk5k",
+        "deckSlides": "20",
+        "fasSource": "cir"
+      }
+    },
+    {
+      "@context": {
+        "prov": "http://www.w3.org/ns/prov#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "voyager": "urn:voyager:prov:"
+      },
+      "@id": "urn:voyager:prov:activity:5b085b27598c2ebdeb0f90809605bcf9",
+      "@type": "prov:Activity",
+      "prov:type": {
+        "@id": "https://voyager.ogc/prov/activity/geotag"
+      },
+      "prov:wasAssociatedWith": {
+        "@id": "urn:voyager:agent:fas-upstream:geotag"
+      },
+      "prov:used": [
+        {
+          "@id": "urn:voyager:prov:entity:fas-source-raw:cir"
+        }
+      ],
+      "prov:generated": [
+        {
+          "@id": "urn:voyager:prov:entity:fas-catalog:cir"
+        }
+      ],
+      "prov:startedAtTime": {
+        "@value": "2026-05-01T00:00:00Z",
+        "@type": "xsd:dateTime"
+      },
+      "prov:endedAtTime": {
+        "@value": "2026-05-01T00:00:01Z",
+        "@type": "xsd:dateTime"
+      },
+      "extra": {
+        "declarative": true,
+        "hadPrimarySource": "https://docs.google.com/presentation/d/1IybpPfUqDYji0ge-X0n165gMV8pU2UqlZQFKxIykk5k",
+        "deckSlides": "20",
+        "fasSource": "cir"
+      }
+    },
+    {
+      "@context": {
+        "prov": "http://www.w3.org/ns/prov#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "voyager": "urn:voyager:prov:"
+      },
+      "@id": "urn:voyager:prov:activity:e324d4bc2830996d81c376df1be4fa21",
+      "@type": "prov:Activity",
+      "prov:type": {
+        "@id": "https://voyager.ogc/prov/activity/classify-commodity"
+      },
+      "prov:wasAssociatedWith": {
+        "@id": "urn:voyager:agent:fas-upstream:classify-commodity"
+      },
+      "prov:used": [
+        {
+          "@id": "urn:voyager:prov:entity:fas-source-raw:cir"
+        }
+      ],
+      "prov:generated": [
+        {
+          "@id": "urn:voyager:prov:entity:fas-catalog:cir"
+        }
+      ],
+      "prov:startedAtTime": {
+        "@value": "2026-05-01T00:00:00Z",
+        "@type": "xsd:dateTime"
+      },
+      "prov:endedAtTime": {
+        "@value": "2026-05-01T00:00:01Z",
+        "@type": "xsd:dateTime"
+      },
+      "extra": {
+        "declarative": true,
+        "hadPrimarySource": "https://docs.google.com/presentation/d/1IybpPfUqDYji0ge-X0n165gMV8pU2UqlZQFKxIykk5k",
+        "deckSlides": "20",
+        "fasSource": "cir"
+      }
+    },
+    {
+      "@context": {
+        "prov": "http://www.w3.org/ns/prov#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "voyager": "urn:voyager:prov:"
+      },
+      "@id": "urn:voyager:prov:activity:fe171a0121e917a2e67193311fc950dc",
+      "@type": "prov:Activity",
+      "prov:type": {
+        "@id": "https://voyager.ogc/prov/activity/field-normalize"
+      },
+      "prov:wasAssociatedWith": {
+        "@id": "urn:voyager:agent:fas-upstream:field-normalize"
+      },
+      "prov:used": [
+        {
+          "@id": "urn:voyager:prov:entity:fas-source-raw:cir"
+        }
+      ],
+      "prov:generated": [
+        {
+          "@id": "urn:voyager:prov:entity:fas-catalog:cir"
+        }
+      ],
+      "prov:startedAtTime": {
+        "@value": "2026-05-01T00:00:00Z",
+        "@type": "xsd:dateTime"
+      },
+      "prov:endedAtTime": {
+        "@value": "2026-05-01T00:00:01Z",
+        "@type": "xsd:dateTime"
+      },
+      "extra": {
+        "declarative": true,
+        "hadPrimarySource": "https://docs.google.com/presentation/d/1IybpPfUqDYji0ge-X0n165gMV8pU2UqlZQFKxIykk5k",
+        "deckSlides": "20",
+        "fasSource": "cir"
+      }
+    }
+  ]
+}

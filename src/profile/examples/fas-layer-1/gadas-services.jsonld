@@ -1,0 +1,93 @@
+{
+  "@context": {
+    "voyager": "urn:voyager:prov:",
+    "prov": "http://www.w3.org/ns/prov#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "fasSource": "gadas-services",
+  "fasSourceName": "GADAS Services (ArcGIS)",
+  "hadPrimarySource": {
+    "@id": "https://docs.google.com/presentation/d/1IybpPfUqDYji0ge-X0n165gMV8pU2UqlZQFKxIykk5k",
+    "deckSlides": "27"
+  },
+  "activities": [
+    {
+      "@context": {
+        "prov": "http://www.w3.org/ns/prov#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "voyager": "urn:voyager:prov:"
+      },
+      "@id": "urn:voyager:prov:activity:5a177570c27b25b48686720dac08c556",
+      "@type": "prov:Activity",
+      "prov:type": {
+        "@id": "https://voyager.ogc/prov/activity/geotag"
+      },
+      "prov:wasAssociatedWith": {
+        "@id": "urn:voyager:agent:fas-upstream:geotag"
+      },
+      "prov:used": [
+        {
+          "@id": "urn:voyager:prov:entity:fas-source-raw:gadas-services"
+        }
+      ],
+      "prov:generated": [
+        {
+          "@id": "urn:voyager:prov:entity:fas-catalog:gadas-services"
+        }
+      ],
+      "prov:startedAtTime": {
+        "@value": "2026-05-01T00:00:00Z",
+        "@type": "xsd:dateTime"
+      },
+      "prov:endedAtTime": {
+        "@value": "2026-05-01T00:00:01Z",
+        "@type": "xsd:dateTime"
+      },
+      "extra": {
+        "declarative": true,
+        "hadPrimarySource": "https://docs.google.com/presentation/d/1IybpPfUqDYji0ge-X0n165gMV8pU2UqlZQFKxIykk5k",
+        "deckSlides": "27",
+        "fasSource": "gadas-services"
+      }
+    },
+    {
+      "@context": {
+        "prov": "http://www.w3.org/ns/prov#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "voyager": "urn:voyager:prov:"
+      },
+      "@id": "urn:voyager:prov:activity:91b714d48db9bcf577e55b9c62f9fc82",
+      "@type": "prov:Activity",
+      "prov:type": {
+        "@id": "https://voyager.ogc/prov/activity/classify-region"
+      },
+      "prov:wasAssociatedWith": {
+        "@id": "urn:voyager:agent:fas-upstream:classify-region"
+      },
+      "prov:used": [
+        {
+          "@id": "urn:voyager:prov:entity:fas-source-raw:gadas-services"
+        }
+      ],
+      "prov:generated": [
+        {
+          "@id": "urn:voyager:prov:entity:fas-catalog:gadas-services"
+        }
+      ],
+      "prov:startedAtTime": {
+        "@value": "2026-05-01T00:00:00Z",
+        "@type": "xsd:dateTime"
+      },
+      "prov:endedAtTime": {
+        "@value": "2026-05-01T00:00:01Z",
+        "@type": "xsd:dateTime"
+      },
+      "extra": {
+        "declarative": true,
+        "hadPrimarySource": "https://docs.google.com/presentation/d/1IybpPfUqDYji0ge-X0n165gMV8pU2UqlZQFKxIykk5k",
+        "deckSlides": "27",
+        "fasSource": "gadas-services"
+      }
+    }
+  ]
+}

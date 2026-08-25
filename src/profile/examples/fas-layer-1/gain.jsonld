@@ -1,0 +1,171 @@
+{
+  "@context": {
+    "voyager": "urn:voyager:prov:",
+    "prov": "http://www.w3.org/ns/prov#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "fasSource": "gain",
+  "fasSourceName": "Global Agriculture Information Network",
+  "hadPrimarySource": {
+    "@id": "https://docs.google.com/presentation/d/1IybpPfUqDYji0ge-X0n165gMV8pU2UqlZQFKxIykk5k",
+    "deckSlides": "22"
+  },
+  "activities": [
+    {
+      "@context": {
+        "prov": "http://www.w3.org/ns/prov#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "voyager": "urn:voyager:prov:"
+      },
+      "@id": "urn:voyager:prov:activity:3722ebc5d0f139354248ad209f509367",
+      "@type": "prov:Activity",
+      "prov:type": {
+        "@id": "https://voyager.ogc/prov/activity/nlp-extract-entities"
+      },
+      "prov:wasAssociatedWith": {
+        "@id": "urn:voyager:agent:fas-upstream:nlp-extract-entities"
+      },
+      "prov:used": [
+        {
+          "@id": "urn:voyager:prov:entity:fas-source-raw:gain"
+        }
+      ],
+      "prov:generated": [
+        {
+          "@id": "urn:voyager:prov:entity:fas-catalog:gain"
+        }
+      ],
+      "prov:startedAtTime": {
+        "@value": "2026-05-01T00:00:00Z",
+        "@type": "xsd:dateTime"
+      },
+      "prov:endedAtTime": {
+        "@value": "2026-05-01T00:00:01Z",
+        "@type": "xsd:dateTime"
+      },
+      "extra": {
+        "declarative": true,
+        "hadPrimarySource": "https://docs.google.com/presentation/d/1IybpPfUqDYji0ge-X0n165gMV8pU2UqlZQFKxIykk5k",
+        "deckSlides": "22",
+        "fasSource": "gain"
+      }
+    },
+    {
+      "@context": {
+        "prov": "http://www.w3.org/ns/prov#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "voyager": "urn:voyager:prov:"
+      },
+      "@id": "urn:voyager:prov:activity:9213f9fc72fb012f7719db4b0017ef7d",
+      "@type": "prov:Activity",
+      "prov:type": {
+        "@id": "https://voyager.ogc/prov/activity/geotag"
+      },
+      "prov:wasAssociatedWith": {
+        "@id": "urn:voyager:agent:fas-upstream:geotag"
+      },
+      "prov:used": [
+        {
+          "@id": "urn:voyager:prov:entity:fas-source-raw:gain"
+        }
+      ],
+      "prov:generated": [
+        {
+          "@id": "urn:voyager:prov:entity:fas-catalog:gain"
+        }
+      ],
+      "prov:startedAtTime": {
+        "@value": "2026-05-01T00:00:00Z",
+        "@type": "xsd:dateTime"
+      },
+      "prov:endedAtTime": {
+        "@value": "2026-05-01T00:00:01Z",
+        "@type": "xsd:dateTime"
+      },
+      "extra": {
+        "declarative": true,
+        "hadPrimarySource": "https://docs.google.com/presentation/d/1IybpPfUqDYji0ge-X0n165gMV8pU2UqlZQFKxIykk5k",
+        "deckSlides": "22",
+        "fasSource": "gain"
+      }
+    },
+    {
+      "@context": {
+        "prov": "http://www.w3.org/ns/prov#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "voyager": "urn:voyager:prov:"
+      },
+      "@id": "urn:voyager:prov:activity:b71b85807cb60f068446deeaea7822d3",
+      "@type": "prov:Activity",
+      "prov:type": {
+        "@id": "https://voyager.ogc/prov/activity/classify-commodity"
+      },
+      "prov:wasAssociatedWith": {
+        "@id": "urn:voyager:agent:fas-upstream:classify-commodity"
+      },
+      "prov:used": [
+        {
+          "@id": "urn:voyager:prov:entity:fas-source-raw:gain"
+        }
+      ],
+      "prov:generated": [
+        {
+          "@id": "urn:voyager:prov:entity:fas-catalog:gain"
+        }
+      ],
+      "prov:startedAtTime": {
+        "@value": "2026-05-01T00:00:00Z",
+        "@type": "xsd:dateTime"
+      },
+      "prov:endedAtTime": {
+        "@value": "2026-05-01T00:00:01Z",
+        "@type": "xsd:dateTime"
+      },
+      "extra": {
+        "declarative": true,
+        "hadPrimarySource": "https://docs.google.com/presentation/d/1IybpPfUqDYji0ge-X0n165gMV8pU2UqlZQFKxIykk5k",
+        "deckSlides": "22",
+        "fasSource": "gain"
+      }
+    },
+    {
+      "@context": {
+        "prov": "http://www.w3.org/ns/prov#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "voyager": "urn:voyager:prov:"
+      },
+      "@id": "urn:voyager:prov:activity:5b08e083b4eda8111b7a7ecf3505eabe",
+      "@type": "prov:Activity",
+      "prov:type": {
+        "@id": "https://voyager.ogc/prov/activity/field-normalize"
+      },
+      "prov:wasAssociatedWith": {
+        "@id": "urn:voyager:agent:fas-upstream:field-normalize"
+      },
+      "prov:used": [
+        {
+          "@id": "urn:voyager:prov:entity:fas-source-raw:gain"
+        }
+      ],
+      "prov:generated": [
+        {
+          "@id": "urn:voyager:prov:entity:fas-catalog:gain"
+        }
+      ],
+      "prov:startedAtTime": {
+        "@value": "2026-05-01T00:00:00Z",
+        "@type": "xsd:dateTime"
+      },
+      "prov:endedAtTime": {
+        "@value": "2026-05-01T00:00:01Z",
+        "@type": "xsd:dateTime"
+      },
+      "extra": {
+        "declarative": true,
+        "hadPrimarySource": "https://docs.google.com/presentation/d/1IybpPfUqDYji0ge-X0n165gMV8pU2UqlZQFKxIykk5k",
+        "deckSlides": "22",
+        "fasSource": "gain"
+      }
+    }
+  ]
+}
