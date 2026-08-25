@@ -8,8 +8,21 @@
   "required": ["activity_type", "agent", "used", "generated", "started_at", "ended_at"],
   "properties": {
     "activity_type": {
-      "description": "One of the six RAG pipeline activity types.",
-      "enum": ["connect", "extract", "chunk", "embed", "retrieve", "generate"]
+      "description": "Voyager pipeline activity type. Layer 2 (RAG): connect/extract/chunk/embed/retrieve/generate. Layer 1 (HQ-side FAS enrichment): geotag/classify-commodity/classify-region/nlp-extract-entities/ocr/field-normalize.",
+      "enum": [
+        "connect",
+        "extract",
+        "chunk",
+        "embed",
+        "retrieve",
+        "generate",
+        "geotag",
+        "classify-commodity",
+        "classify-region",
+        "nlp-extract-entities",
+        "ocr",
+        "field-normalize"
+      ]
     },
     "agent": {
       "description": "URI of the agent (connector, service, model) that ran the activity.",
