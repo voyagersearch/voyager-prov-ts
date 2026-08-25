@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://voyager.ogc/prov/v0/prov-record.schema.json",
+  "title": "Voyager PROV Record",
+  "description": "Input shape to voyager-prov-* emit(). v0 draft against a Voyager-internal register namespace; swap the activityType pattern once D110 URIs freeze.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["activity_type", "agent", "used", "generated", "started_at", "ended_at"],
+  "properties": {
+    "activity_type": {
+      "description": "One of the six RAG pipeline activity types.",
+      "enum": ["connect", "extract", "chunk", "embed", "retrieve", "generate"]
+    },
+    "agent": {
+      "description": "URI of the agent (connector, service, model) that ran the activity.",
+      "type": "string",
+      "minLength": 1,
+      "not": { "pattern": "\\s" }
+    },
+    "used": {
+      "description": "Entity URIs the activity consumed. Order-insensitive; emit() sorts before hashing identity.",
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "generated": {
+      "description": "Entity URIs the activity produced. Order-insensitive; emit() sorts before hashing identity.",
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "started_at": {
+      "description": "ISO 8601 UTC or ±HH:MM offset. Millisecond precision optional.",
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,9})?(?:Z|[+-]\\d{2}:\\d{2})$"
+    },
+    "ended_at": {
+      "description": "ISO 8601 UTC or ±HH:MM offset. Must be >= started_at.",
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,9})?(?:Z|[+-]\\d{2}:\\d{2})$"
+    },
+    "extra": {
+      "description": "Provenance-relevant metadata not part of the activity identity.",
+      "type": "object"
+    }
+  }
+}

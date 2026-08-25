@@ -1,0 +1,84 @@
+@prefix sh:      <http://www.w3.org/ns/shacl#> .
+@prefix prov:    <http://www.w3.org/ns/prov#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix voyager: <urn:voyager:prov:> .
+
+# ─── voyager-prov v0 SHACL shapes ────────────────────────────────────────────
+# Structural constraints on the PROV graph emitted by voyager-prov-* emit().
+# Runs against the JSON-LD blob after it is parsed into RDF (either language's
+# validation harness invokes a SHACL engine on the parsed graph).
+#
+# Not exhaustive — only the shapes the D100 acceptance criteria assert.
+# Full W3C PROV constraints live in the W3C PROV Ontology's own shapes; this
+# file only adds Voyager/D100-specific tightening.
+
+<https://voyager.ogc/prov/v0/shapes/ActivityShape>
+    a sh:NodeShape ;
+    sh:targetClass prov:Activity ;
+
+    # Every Activity has exactly one prov:type reference (activityType URI).
+    sh:property [
+        sh:path prov:type ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:nodeKind sh:IRI ;
+        sh:message "prov:Activity must have exactly one prov:type IRI (activityType URI)."
+    ] ;
+
+    # Every Activity has exactly one prov:wasAssociatedWith (agent).
+    sh:property [
+        sh:path prov:wasAssociatedWith ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:nodeKind sh:IRI ;
+        sh:message "prov:Activity must have exactly one prov:wasAssociatedWith agent IRI."
+    ] ;
+
+    # Every Activity has exactly one prov:startedAtTime (xsd:dateTime).
+    sh:property [
+        sh:path prov:startedAtTime ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:dateTime ;
+        sh:message "prov:Activity must have exactly one prov:startedAtTime typed xsd:dateTime."
+    ] ;
+
+    # Every Activity has exactly one prov:endedAtTime (xsd:dateTime).
+    sh:property [
+        sh:path prov:endedAtTime ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:dateTime ;
+        sh:message "prov:Activity must have exactly one prov:endedAtTime typed xsd:dateTime."
+    ] ;
+
+    # Any prov:used values must be IRIs.
+    sh:property [
+        sh:path prov:used ;
+        sh:nodeKind sh:IRI ;
+        sh:message "prov:used values must be IRIs (entity URIs)."
+    ] ;
+
+    # Any prov:generated values must be IRIs.
+    sh:property [
+        sh:path prov:generated ;
+        sh:nodeKind sh:IRI ;
+        sh:message "prov:generated values must be IRIs (entity URIs)."
+    ] ;
+
+    # Activity @id must be a Voyager PROV activity URN — v0 shape; D110 may
+    # broaden this to accept register-issued URIs.
+    sh:sparql [
+        sh:message "prov:Activity @id must match urn:voyager:prov:activity:<32 hex chars>." ;
+        sh:prefixes <https://voyager.ogc/prov/v0/shapes/prefixes> ;
+        sh:select """
+            SELECT $this
+            WHERE {
+                FILTER (!REGEX(STR($this), '^urn:voyager:prov:activity:[0-9a-f]{32}$'))
+            }
+        """
+    ] .
+
+<https://voyager.ogc/prov/v0/shapes/prefixes>
+    sh:declare [ sh:prefix "prov" ; sh:namespace "http://www.w3.org/ns/prov#"^^xsd:anyURI ] ;
+    sh:declare [ sh:prefix "xsd" ;  sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ] .

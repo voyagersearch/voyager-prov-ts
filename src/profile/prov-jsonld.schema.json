@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://voyager.ogc/prov/v0/prov-jsonld.schema.json",
+  "title": "Voyager PROV JSON-LD",
+  "description": "Output shape of voyager-prov-* emit(). Subset of W3C PROV JSON-LD used by D100. Not a full W3C PROV binding — validates only the fields the D100 harness inspects.",
+  "type": "object",
+  "required": [
+    "@context",
+    "@id",
+    "@type",
+    "prov:type",
+    "prov:wasAssociatedWith",
+    "prov:used",
+    "prov:generated",
+    "prov:startedAtTime",
+    "prov:endedAtTime"
+  ],
+  "properties": {
+    "@context": {
+      "type": "object",
+      "required": ["prov", "xsd", "voyager"],
+      "properties": {
+        "prov": { "const": "http://www.w3.org/ns/prov#" },
+        "xsd": { "const": "http://www.w3.org/2001/XMLSchema#" },
+        "voyager": { "const": "urn:voyager:prov:" }
+      }
+    },
+    "@id": {
+      "type": "string",
+      "pattern": "^urn:voyager:prov:activity:[0-9a-f]{32}$"
+    },
+    "@type": { "const": "prov:Activity" },
+    "prov:type": {
+      "type": "object",
+      "required": ["@id"],
+      "properties": { "@id": { "type": "string", "minLength": 1 } }
+    },
+    "prov:wasAssociatedWith": {
+      "type": "object",
+      "required": ["@id"],
+      "properties": { "@id": { "type": "string", "minLength": 1 } }
+    },
+    "prov:used": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["@id"],
+        "properties": { "@id": { "type": "string", "minLength": 1 } }
+      }
+    },
+    "prov:generated": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["@id"],
+        "properties": { "@id": { "type": "string", "minLength": 1 } }
+      }
+    },
+    "prov:startedAtTime": {
+      "type": "object",
+      "required": ["@value", "@type"],
+      "properties": {
+        "@value": {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,9})?(?:Z|[+-]\\d{2}:\\d{2})$"
+        },
+        "@type": { "const": "xsd:dateTime" }
+      }
+    },
+    "prov:endedAtTime": {
+      "type": "object",
+      "required": ["@value", "@type"],
+      "properties": {
+        "@value": {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,9})?(?:Z|[+-]\\d{2}:\\d{2})$"
+        },
+        "@type": { "const": "xsd:dateTime" }
+      }
+    },
+    "extra": { "type": "object" }
+  }
+}
