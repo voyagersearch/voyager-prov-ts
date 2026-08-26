@@ -21,10 +21,14 @@ import {
   SolrProvDoc,
   VOYAGER_URN_NS,
 } from "./types.js";
-import { activityTypeURI, EMPTY_REMAP, RemapTable } from "./remap.js";
+import { activityTypeURI, DEFAULT_REMAP, RemapTable } from "./remap.js";
 
 export interface EmitOptions {
-  /** D110 register URI mapping. Defaults to the empty remap (Voyager-internal). */
+  /**
+   * D110 register URI mapping. Overrides the process-wide default resolved
+   * from the `PROV_REGISTER_MAP` env at module import. Pass explicitly for
+   * tests or for a caller keeping multiple registers around.
+   */
   remap?: RemapTable;
 }
 
@@ -32,7 +36,7 @@ const ACTIVITY_URN_PREFIX = `${VOYAGER_URN_NS}activity:` as const;
 
 export function emit(record: ProvRecord, options: EmitOptions = {}): EmitResult {
   validate(record);
-  const remap = options.remap ?? EMPTY_REMAP;
+  const remap = options.remap ?? DEFAULT_REMAP;
   const typeURI = activityTypeURI(record.activityType, remap);
   const activityId = deriveActivityId(record, typeURI);
 
