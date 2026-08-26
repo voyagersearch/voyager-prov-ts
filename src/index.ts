@@ -1,7 +1,7 @@
 export { emit } from "./emit.js";
 export type { EmitOptions } from "./emit.js";
 export { entityURI } from "./entity.js";
-export { activityTypeURI, EMPTY_REMAP } from "./remap.js";
+export { activityTypeURI, DEFAULT_REMAP, EMPTY_REMAP, REGISTER_ENV_VAR } from "./remap.js";
 export type { RemapTable } from "./remap.js";
 export type {
   ActivityType,
