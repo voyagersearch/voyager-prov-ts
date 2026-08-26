@@ -27,10 +27,22 @@
     "lint": "eslint src tests --ext .ts"
   },
   "dependencies": {
+    "@rdfjs/data-model": "^2.1.2",
+    "@rdfjs/dataset": "^2.0.3",
+    "@rdfjs/environment": "^1.0.0",
+    "@rdfjs/namespace": "^2.0.1",
+    "@rdfjs/term-map": "^2.0.2",
+    "@rdfjs/term-set": "^2.0.3",
     "ajv": "^8.17.1",
-    "ajv-formats": "^3.0.1"
+    "ajv-formats": "^3.0.1",
+    "clownface": "^2.0.3",
+    "jsonld": "^9.0.0",
+    "n3": "^2.6.0",
+    "rdf-validate-shacl": "^0.6.5"
   },
   "devDependencies": {
+    "@types/jsonld": "^1.5.15",
+    "@types/n3": "^1.26.1",
     "@types/node": "^20.19.0",
     "typescript": "^5.6.3",
     "vitest": "^2.1.9"
