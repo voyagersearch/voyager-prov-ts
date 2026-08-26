@@ -13,3 +13,4 @@ export type {
 export { VOYAGER_ACTIVITY_NS, VOYAGER_URN_NS } from "./types.js";
 export { validateProvRecord, validateProvJsonld } from "./validate.js";
 export type { ValidationError, ValidationResult } from "./validate.js";
+export { validateProvShapes } from "./shapes.js";
