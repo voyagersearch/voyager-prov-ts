@@ -66,18 +66,12 @@
         sh:message "prov:generated values must be IRIs (entity URIs)."
     ] ;
 
-    # Activity @id must be a Voyager PROV activity URN — v0 shape; D110 may
-    # broaden this to accept register-issued URIs.
-    sh:sparql [
-        sh:message "prov:Activity @id must match urn:voyager:prov:activity:<32 hex chars>." ;
-        sh:prefixes <https://voyager.ogc/prov/v0/shapes/prefixes> ;
-        sh:select """
-            SELECT $this
-            WHERE {
-                FILTER (!REGEX(STR($this), '^urn:voyager:prov:activity:[0-9a-f]{32}$'))
-            }
-        """
-    ] .
+    # Activity @id constraint (urn:voyager:prov:activity:<32 hex chars>) lives
+    # in the JSON Schema layer (`prov-jsonld.schema.json` — `@id` pattern) so
+    # the URN check runs deterministically without needing a SPARQL engine.
+    # Keeping the semantic check on the JSON side lets both language packages
+    # use the same lean SHACL shape without a SPARQL processor dependency.
+    .
 
 <https://voyager.ogc/prov/v0/shapes/prefixes>
     sh:declare [ sh:prefix "prov" ; sh:namespace "http://www.w3.org/ns/prov#"^^xsd:anyURI ] ;
