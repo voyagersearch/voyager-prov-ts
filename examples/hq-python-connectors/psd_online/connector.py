@@ -360,12 +360,25 @@ class FASPSDOnlineConnector(Connector):
                     'entry': {'fields': {'repository': self.repo_id}}
                 }
                 # ── C-chain step 1: fas-source-fetch ────────────────────────
-                e_ext = URN_ENTITY + "fas-catalog:psd-online:%s:%s" % (comm, target_year)
+                # `prov_used` is a per-doc URI, NOT a shared batch URI.
+                # Earlier revisions used `fas-catalog:psd-online:{comm}:{year}`
+                # which was the same URI for every doc of that commodity+year
+                # (~82 countries), causing the graph walk in mastra's sink to
+                # fan out to hundreds of activities from a single hop. The
+                # batch identity (commodity+year+country) lives in `extra`
+                # instead, so anyone reasoning about "same API call" can still
+                # get there without turning it into a chain-walkable hub URI.
+                e_ext = URN_ENTITY + "fas-catalog-item:psd-online:%s" % doc_id
                 e_raw = URN_ENTITY + "fas-source-raw:psd-online:%s" % doc_id
                 _prov_emit(
                     "fas-source-fetch", self.AGENT_FETCH,
                     [e_ext], [e_raw], doc_id,
-                    extra={"commodity": comm, "year": target_year, "country": country.get("countryCode")},
+                    extra={
+                        "commodity": comm,
+                        "year": target_year,
+                        "country": country.get("countryCode"),
+                        "batch_catalog_uri": URN_ENTITY + "fas-catalog:psd-online:%s:%s" % (comm, target_year),
+                    },
                 )
                 # ── C-chain step 2: fas-code-decode ────────────────────────
                 e_dec = URN_ENTITY + "fas-source-decoded:psd-online:%s" % doc_id
