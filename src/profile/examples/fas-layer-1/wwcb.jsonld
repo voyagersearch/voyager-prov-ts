@@ -1,0 +1,260 @@
+{
+  "@context": {
+    "prov": "http://www.w3.org/ns/prov#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "voyager": "urn:voyager:prov:"
+  },
+  "fasSource": "wwcb",
+  "fasSourceName": "Weekly Weather and Crop Bulletins",
+  "hadPrimarySource": {
+    "@id": "https://docs.google.com/presentation/d/1IybpPfUqDYji0ge-X0n165gMV8pU2UqlZQFKxIykk5k",
+    "deckSlides": "20-21"
+  },
+  "sourceUrl": "https://esmis.nal.usda.gov/publication/weekly-weather-and-crop-bulletin",
+  "externalDeps": [
+    "BeautifulSoup4",
+    "requests",
+    "fitz (PyMuPDF)",
+    "GCP Vision OCR",
+    "pycountry"
+  ],
+  "connectorSteps": [
+    "C1 BeautifulSoup scrape esmis.nal.usda.gov index",
+    "C2 collect PDF bulletin links + <time datetime>",
+    "C3 delta via utils.get_repo_ids",
+    "C4 utils.parse_bulletin splits USA + International summary + per-country page slices",
+    "C5 per-country child jobs keyed by figure page",
+    "C6 image OCR via utils.run_image (12500B size gate)",
+    "C7 copy release_date to children + build link graph"
+  ],
+  "activities": [
+    {
+      "@context": {
+        "prov": "http://www.w3.org/ns/prov#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "voyager": "urn:voyager:prov:"
+      },
+      "@id": "urn:voyager:prov:activity:a12034efcdd94bee92354cb34db68917",
+      "@type": "prov:Activity",
+      "prov:type": {
+        "@id": "https://voyager.ogc/prov/activity/geotag"
+      },
+      "prov:wasAssociatedWith": {
+        "@id": "urn:voyager:agent:fas-upstream:wwcb.geotag"
+      },
+      "prov:used": [
+        {
+          "@id": "urn:voyager:prov:entity:fas-source-raw:wwcb"
+        }
+      ],
+      "prov:generated": [
+        {
+          "@id": "urn:voyager:prov:entity:fas-catalog:wwcb+geotag"
+        }
+      ],
+      "prov:startedAtTime": {
+        "@value": "2026-05-01T00:00:00Z",
+        "@type": "xsd:dateTime"
+      },
+      "prov:endedAtTime": {
+        "@value": "2026-05-01T00:00:01Z",
+        "@type": "xsd:dateTime"
+      },
+      "extra": {
+        "declarative": true,
+        "hadPrimarySource": "https://docs.google.com/presentation/d/1IybpPfUqDYji0ge-X0n165gMV8pU2UqlZQFKxIykk5k",
+        "deckSlides": "20-21",
+        "sourceUrl": "https://esmis.nal.usda.gov/publication/weekly-weather-and-crop-bulletin",
+        "fasSource": "wwcb",
+        "chainIndex": 0,
+        "connectorSteps": [
+          "C1 BeautifulSoup scrape esmis.nal.usda.gov index",
+          "C2 collect PDF bulletin links + <time datetime>",
+          "C3 delta via utils.get_repo_ids",
+          "C4 utils.parse_bulletin splits USA + International summary + per-country page slices",
+          "C5 per-country child jobs keyed by figure page",
+          "C6 image OCR via utils.run_image (12500B size gate)",
+          "C7 copy release_date to children + build link graph"
+        ],
+        "externalDeps": [
+          "BeautifulSoup4",
+          "requests",
+          "fitz (PyMuPDF)",
+          "GCP Vision OCR",
+          "pycountry"
+        ]
+      }
+    },
+    {
+      "@context": {
+        "prov": "http://www.w3.org/ns/prov#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "voyager": "urn:voyager:prov:"
+      },
+      "@id": "urn:voyager:prov:activity:9f4261972dd3bad289a2ed48f11741f7",
+      "@type": "prov:Activity",
+      "prov:type": {
+        "@id": "https://voyager.ogc/prov/activity/classify-commodity"
+      },
+      "prov:wasAssociatedWith": {
+        "@id": "urn:voyager:agent:fas-upstream:wwcb.classify-commodity"
+      },
+      "prov:used": [
+        {
+          "@id": "urn:voyager:prov:entity:fas-catalog:wwcb+geotag"
+        }
+      ],
+      "prov:generated": [
+        {
+          "@id": "urn:voyager:prov:entity:fas-catalog:wwcb+classify-commodity"
+        }
+      ],
+      "prov:startedAtTime": {
+        "@value": "2026-05-01T00:00:00Z",
+        "@type": "xsd:dateTime"
+      },
+      "prov:endedAtTime": {
+        "@value": "2026-05-01T00:00:01Z",
+        "@type": "xsd:dateTime"
+      },
+      "extra": {
+        "declarative": true,
+        "hadPrimarySource": "https://docs.google.com/presentation/d/1IybpPfUqDYji0ge-X0n165gMV8pU2UqlZQFKxIykk5k",
+        "deckSlides": "20-21",
+        "sourceUrl": "https://esmis.nal.usda.gov/publication/weekly-weather-and-crop-bulletin",
+        "fasSource": "wwcb",
+        "chainIndex": 1,
+        "connectorSteps": [
+          "C1 BeautifulSoup scrape esmis.nal.usda.gov index",
+          "C2 collect PDF bulletin links + <time datetime>",
+          "C3 delta via utils.get_repo_ids",
+          "C4 utils.parse_bulletin splits USA + International summary + per-country page slices",
+          "C5 per-country child jobs keyed by figure page",
+          "C6 image OCR via utils.run_image (12500B size gate)",
+          "C7 copy release_date to children + build link graph"
+        ],
+        "externalDeps": [
+          "BeautifulSoup4",
+          "requests",
+          "fitz (PyMuPDF)",
+          "GCP Vision OCR",
+          "pycountry"
+        ]
+      }
+    },
+    {
+      "@context": {
+        "prov": "http://www.w3.org/ns/prov#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "voyager": "urn:voyager:prov:"
+      },
+      "@id": "urn:voyager:prov:activity:fe089ff549631ddb3a8704e78fd32cec",
+      "@type": "prov:Activity",
+      "prov:type": {
+        "@id": "https://voyager.ogc/prov/activity/ocr"
+      },
+      "prov:wasAssociatedWith": {
+        "@id": "urn:voyager:agent:fas-upstream:wwcb.ocr"
+      },
+      "prov:used": [
+        {
+          "@id": "urn:voyager:prov:entity:fas-catalog:wwcb+classify-commodity"
+        }
+      ],
+      "prov:generated": [
+        {
+          "@id": "urn:voyager:prov:entity:fas-catalog:wwcb+ocr"
+        }
+      ],
+      "prov:startedAtTime": {
+        "@value": "2026-05-01T00:00:00Z",
+        "@type": "xsd:dateTime"
+      },
+      "prov:endedAtTime": {
+        "@value": "2026-05-01T00:00:01Z",
+        "@type": "xsd:dateTime"
+      },
+      "extra": {
+        "declarative": true,
+        "hadPrimarySource": "https://docs.google.com/presentation/d/1IybpPfUqDYji0ge-X0n165gMV8pU2UqlZQFKxIykk5k",
+        "deckSlides": "20-21",
+        "sourceUrl": "https://esmis.nal.usda.gov/publication/weekly-weather-and-crop-bulletin",
+        "fasSource": "wwcb",
+        "chainIndex": 2,
+        "connectorSteps": [
+          "C1 BeautifulSoup scrape esmis.nal.usda.gov index",
+          "C2 collect PDF bulletin links + <time datetime>",
+          "C3 delta via utils.get_repo_ids",
+          "C4 utils.parse_bulletin splits USA + International summary + per-country page slices",
+          "C5 per-country child jobs keyed by figure page",
+          "C6 image OCR via utils.run_image (12500B size gate)",
+          "C7 copy release_date to children + build link graph"
+        ],
+        "externalDeps": [
+          "BeautifulSoup4",
+          "requests",
+          "fitz (PyMuPDF)",
+          "GCP Vision OCR",
+          "pycountry"
+        ]
+      }
+    },
+    {
+      "@context": {
+        "prov": "http://www.w3.org/ns/prov#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "voyager": "urn:voyager:prov:"
+      },
+      "@id": "urn:voyager:prov:activity:8437b4575093c8c47574d45e4e4270a9",
+      "@type": "prov:Activity",
+      "prov:type": {
+        "@id": "https://voyager.ogc/prov/activity/field-normalize"
+      },
+      "prov:wasAssociatedWith": {
+        "@id": "urn:voyager:agent:fas-upstream:wwcb.field-normalize"
+      },
+      "prov:used": [
+        {
+          "@id": "urn:voyager:prov:entity:fas-catalog:wwcb+ocr"
+        }
+      ],
+      "prov:generated": [
+        {
+          "@id": "urn:voyager:prov:entity:fas-catalog:wwcb"
+        }
+      ],
+      "prov:startedAtTime": {
+        "@value": "2026-05-01T00:00:00Z",
+        "@type": "xsd:dateTime"
+      },
+      "prov:endedAtTime": {
+        "@value": "2026-05-01T00:00:01Z",
+        "@type": "xsd:dateTime"
+      },
+      "extra": {
+        "declarative": true,
+        "hadPrimarySource": "https://docs.google.com/presentation/d/1IybpPfUqDYji0ge-X0n165gMV8pU2UqlZQFKxIykk5k",
+        "deckSlides": "20-21",
+        "sourceUrl": "https://esmis.nal.usda.gov/publication/weekly-weather-and-crop-bulletin",
+        "fasSource": "wwcb",
+        "chainIndex": 3,
+        "connectorSteps": [
+          "C1 BeautifulSoup scrape esmis.nal.usda.gov index",
+          "C2 collect PDF bulletin links + <time datetime>",
+          "C3 delta via utils.get_repo_ids",
+          "C4 utils.parse_bulletin splits USA + International summary + per-country page slices",
+          "C5 per-country child jobs keyed by figure page",
+          "C6 image OCR via utils.run_image (12500B size gate)",
+          "C7 copy release_date to children + build link graph"
+        ],
+        "externalDeps": [
+          "BeautifulSoup4",
+          "requests",
+          "fitz (PyMuPDF)",
+          "GCP Vision OCR",
+          "pycountry"
+        ]
+      }
+    }
+  ]
+}

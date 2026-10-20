@@ -1,0 +1,195 @@
+{
+  "@context": {
+    "prov": "http://www.w3.org/ns/prov#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "voyager": "urn:voyager:prov:"
+  },
+  "fasSource": "crop-explorer",
+  "fasSourceName": "Crop Explorer (weather/vegetation maps)",
+  "hadPrimarySource": {
+    "@id": "https://docs.google.com/presentation/d/1IybpPfUqDYji0ge-X0n165gMV8pU2UqlZQFKxIykk5k",
+    "deckSlides": "26"
+  },
+  "sourceUrl": "https://ipadinternalportal.fas.usda.gov/cropexplorer/imageview.aspx?regionid={id}",
+  "externalDeps": [
+    "urllib",
+    "BeautifulSoup4",
+    "Voyager placefinder Solr"
+  ],
+  "connectorSteps": [
+    "C1 per-region scrape (utils.regions_info)",
+    "C2 find <li class='ceMenu'> items filtered to Precipitation/Temperature/Soil Moisture/Drought Severity/Vegetation Index",
+    "C3 urlparse startdate/imenddate",
+    "C4 fetch page, find img.coords = map image URL",
+    "C5 utils.download_image \u2192 path_to_thumb + hasThumb",
+    "C6 placefinder geo lookup by region country \u2192 spatial.shape",
+    "C7 sets grp_data_location_type='Geospatial Data' (in connector)"
+  ],
+  "activities": [
+    {
+      "@context": {
+        "prov": "http://www.w3.org/ns/prov#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "voyager": "urn:voyager:prov:"
+      },
+      "@id": "urn:voyager:prov:activity:7a85b46e45f2f9f8c935f70561443102",
+      "@type": "prov:Activity",
+      "prov:type": {
+        "@id": "https://voyager.ogc/prov/activity/geotag"
+      },
+      "prov:wasAssociatedWith": {
+        "@id": "urn:voyager:agent:fas-upstream:crop-explorer.geotag"
+      },
+      "prov:used": [
+        {
+          "@id": "urn:voyager:prov:entity:fas-source-raw:crop-explorer"
+        }
+      ],
+      "prov:generated": [
+        {
+          "@id": "urn:voyager:prov:entity:fas-catalog:crop-explorer+geotag"
+        }
+      ],
+      "prov:startedAtTime": {
+        "@value": "2026-05-01T00:00:00Z",
+        "@type": "xsd:dateTime"
+      },
+      "prov:endedAtTime": {
+        "@value": "2026-05-01T00:00:01Z",
+        "@type": "xsd:dateTime"
+      },
+      "extra": {
+        "declarative": true,
+        "hadPrimarySource": "https://docs.google.com/presentation/d/1IybpPfUqDYji0ge-X0n165gMV8pU2UqlZQFKxIykk5k",
+        "deckSlides": "26",
+        "sourceUrl": "https://ipadinternalportal.fas.usda.gov/cropexplorer/imageview.aspx?regionid={id}",
+        "fasSource": "crop-explorer",
+        "chainIndex": 0,
+        "connectorSteps": [
+          "C1 per-region scrape (utils.regions_info)",
+          "C2 find <li class='ceMenu'> items filtered to Precipitation/Temperature/Soil Moisture/Drought Severity/Vegetation Index",
+          "C3 urlparse startdate/imenddate",
+          "C4 fetch page, find img.coords = map image URL",
+          "C5 utils.download_image \u2192 path_to_thumb + hasThumb",
+          "C6 placefinder geo lookup by region country \u2192 spatial.shape",
+          "C7 sets grp_data_location_type='Geospatial Data' (in connector)"
+        ],
+        "externalDeps": [
+          "urllib",
+          "BeautifulSoup4",
+          "Voyager placefinder Solr"
+        ]
+      }
+    },
+    {
+      "@context": {
+        "prov": "http://www.w3.org/ns/prov#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "voyager": "urn:voyager:prov:"
+      },
+      "@id": "urn:voyager:prov:activity:eb82b6ebfae8ca1cffd9936ace4db05c",
+      "@type": "prov:Activity",
+      "prov:type": {
+        "@id": "https://voyager.ogc/prov/activity/classify-region"
+      },
+      "prov:wasAssociatedWith": {
+        "@id": "urn:voyager:agent:fas-upstream:crop-explorer.classify-region"
+      },
+      "prov:used": [
+        {
+          "@id": "urn:voyager:prov:entity:fas-catalog:crop-explorer+geotag"
+        }
+      ],
+      "prov:generated": [
+        {
+          "@id": "urn:voyager:prov:entity:fas-catalog:crop-explorer+classify-region"
+        }
+      ],
+      "prov:startedAtTime": {
+        "@value": "2026-05-01T00:00:00Z",
+        "@type": "xsd:dateTime"
+      },
+      "prov:endedAtTime": {
+        "@value": "2026-05-01T00:00:01Z",
+        "@type": "xsd:dateTime"
+      },
+      "extra": {
+        "declarative": true,
+        "hadPrimarySource": "https://docs.google.com/presentation/d/1IybpPfUqDYji0ge-X0n165gMV8pU2UqlZQFKxIykk5k",
+        "deckSlides": "26",
+        "sourceUrl": "https://ipadinternalportal.fas.usda.gov/cropexplorer/imageview.aspx?regionid={id}",
+        "fasSource": "crop-explorer",
+        "chainIndex": 1,
+        "connectorSteps": [
+          "C1 per-region scrape (utils.regions_info)",
+          "C2 find <li class='ceMenu'> items filtered to Precipitation/Temperature/Soil Moisture/Drought Severity/Vegetation Index",
+          "C3 urlparse startdate/imenddate",
+          "C4 fetch page, find img.coords = map image URL",
+          "C5 utils.download_image \u2192 path_to_thumb + hasThumb",
+          "C6 placefinder geo lookup by region country \u2192 spatial.shape",
+          "C7 sets grp_data_location_type='Geospatial Data' (in connector)"
+        ],
+        "externalDeps": [
+          "urllib",
+          "BeautifulSoup4",
+          "Voyager placefinder Solr"
+        ]
+      }
+    },
+    {
+      "@context": {
+        "prov": "http://www.w3.org/ns/prov#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "voyager": "urn:voyager:prov:"
+      },
+      "@id": "urn:voyager:prov:activity:01365277313e7a30763bca85a02891b8",
+      "@type": "prov:Activity",
+      "prov:type": {
+        "@id": "https://voyager.ogc/prov/activity/field-normalize"
+      },
+      "prov:wasAssociatedWith": {
+        "@id": "urn:voyager:agent:fas-upstream:crop-explorer.field-normalize"
+      },
+      "prov:used": [
+        {
+          "@id": "urn:voyager:prov:entity:fas-catalog:crop-explorer+classify-region"
+        }
+      ],
+      "prov:generated": [
+        {
+          "@id": "urn:voyager:prov:entity:fas-catalog:crop-explorer"
+        }
+      ],
+      "prov:startedAtTime": {
+        "@value": "2026-05-01T00:00:00Z",
+        "@type": "xsd:dateTime"
+      },
+      "prov:endedAtTime": {
+        "@value": "2026-05-01T00:00:01Z",
+        "@type": "xsd:dateTime"
+      },
+      "extra": {
+        "declarative": true,
+        "hadPrimarySource": "https://docs.google.com/presentation/d/1IybpPfUqDYji0ge-X0n165gMV8pU2UqlZQFKxIykk5k",
+        "deckSlides": "26",
+        "sourceUrl": "https://ipadinternalportal.fas.usda.gov/cropexplorer/imageview.aspx?regionid={id}",
+        "fasSource": "crop-explorer",
+        "chainIndex": 2,
+        "connectorSteps": [
+          "C1 per-region scrape (utils.regions_info)",
+          "C2 find <li class='ceMenu'> items filtered to Precipitation/Temperature/Soil Moisture/Drought Severity/Vegetation Index",
+          "C3 urlparse startdate/imenddate",
+          "C4 fetch page, find img.coords = map image URL",
+          "C5 utils.download_image \u2192 path_to_thumb + hasThumb",
+          "C6 placefinder geo lookup by region country \u2192 spatial.shape",
+          "C7 sets grp_data_location_type='Geospatial Data' (in connector)"
+        ],
+        "externalDeps": [
+          "urllib",
+          "BeautifulSoup4",
+          "Voyager placefinder Solr"
+        ]
+      }
+    }
+  ]
+}

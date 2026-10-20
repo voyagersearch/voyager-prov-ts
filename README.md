@@ -90,8 +90,8 @@ The `main` collection needs these fields to receive `solrDoc`:
 | `prov_agent` | string | no |
 | `prov_used` | string | yes |
 | `prov_generated` | string | yes |
-| `prov_startedAt` | tdate | no |
-| `prov_endedAt` | tdate | no |
+| `prov_startedAt` | date | no |
+| `prov_endedAt` | date | no |
 | `prov_jsonld` | string (stored, not indexed) | no |
 
 See [D100 plan Step 3](../../../.claude/plans/fluttering-scribbling-giraffe.md#step-3--solr-schema-additions).

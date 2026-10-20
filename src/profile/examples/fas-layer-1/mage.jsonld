@@ -1,0 +1,183 @@
+{
+  "@context": {
+    "prov": "http://www.w3.org/ns/prov#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "voyager": "urn:voyager:prov:"
+  },
+  "fasSource": "mage",
+  "fasSourceName": "MAGE (Mobile Awareness GEOINT Environment, crop-tour observations)",
+  "hadPrimarySource": {
+    "@id": "https://docs.google.com/presentation/d/1IybpPfUqDYji0ge-X0n165gMV8pU2UqlZQFKxIykk5k",
+    "deckSlides": "29"
+  },
+  "sourceUrl": "https://usda.mage.geointapps.com/api/events/{id}/observations",
+  "externalDeps": [
+    "requests"
+  ],
+  "connectorSteps": [
+    "C1 login POST /auth/local/signin + device token POST /auth/token",
+    "C2 iterate events GET /api/events \u2192 per-event GET /api/events/{id}/observations?populate=true&states=active",
+    "C3 per-observation extract first `form` \u2192 map values against in-file enums: land_covers, crop_conditions, crop_stages, observed_health_conditions, soil_conditions, water_supplies, comments",
+    "C4 download first attachment \u2192 make_thumbnail (E:/voyager/voyager_data/meta/{repo}/thumb/...)",
+    "C5 attach event context (name/description) + GeoJSON geo pass-through",
+    "C6 sets grp_data_location_type='Geospatial Data' (in connector)"
+  ],
+  "activities": [
+    {
+      "@context": {
+        "prov": "http://www.w3.org/ns/prov#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "voyager": "urn:voyager:prov:"
+      },
+      "@id": "urn:voyager:prov:activity:1f0c4b9af8212cc763159560810172be",
+      "@type": "prov:Activity",
+      "prov:type": {
+        "@id": "https://voyager.ogc/prov/activity/geotag"
+      },
+      "prov:wasAssociatedWith": {
+        "@id": "urn:voyager:agent:fas-upstream:mage.geotag"
+      },
+      "prov:used": [
+        {
+          "@id": "urn:voyager:prov:entity:fas-source-raw:mage"
+        }
+      ],
+      "prov:generated": [
+        {
+          "@id": "urn:voyager:prov:entity:fas-catalog:mage+geotag"
+        }
+      ],
+      "prov:startedAtTime": {
+        "@value": "2026-05-01T00:00:00Z",
+        "@type": "xsd:dateTime"
+      },
+      "prov:endedAtTime": {
+        "@value": "2026-05-01T00:00:01Z",
+        "@type": "xsd:dateTime"
+      },
+      "extra": {
+        "declarative": true,
+        "hadPrimarySource": "https://docs.google.com/presentation/d/1IybpPfUqDYji0ge-X0n165gMV8pU2UqlZQFKxIykk5k",
+        "deckSlides": "29",
+        "sourceUrl": "https://usda.mage.geointapps.com/api/events/{id}/observations",
+        "fasSource": "mage",
+        "chainIndex": 0,
+        "connectorSteps": [
+          "C1 login POST /auth/local/signin + device token POST /auth/token",
+          "C2 iterate events GET /api/events \u2192 per-event GET /api/events/{id}/observations?populate=true&states=active",
+          "C3 per-observation extract first `form` \u2192 map values against in-file enums: land_covers, crop_conditions, crop_stages, observed_health_conditions, soil_conditions, water_supplies, comments",
+          "C4 download first attachment \u2192 make_thumbnail (E:/voyager/voyager_data/meta/{repo}/thumb/...)",
+          "C5 attach event context (name/description) + GeoJSON geo pass-through",
+          "C6 sets grp_data_location_type='Geospatial Data' (in connector)"
+        ],
+        "externalDeps": [
+          "requests"
+        ]
+      }
+    },
+    {
+      "@context": {
+        "prov": "http://www.w3.org/ns/prov#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "voyager": "urn:voyager:prov:"
+      },
+      "@id": "urn:voyager:prov:activity:8bbda99023f5b25faf30372b9cc78dc6",
+      "@type": "prov:Activity",
+      "prov:type": {
+        "@id": "https://voyager.ogc/prov/activity/classify-region"
+      },
+      "prov:wasAssociatedWith": {
+        "@id": "urn:voyager:agent:fas-upstream:mage.classify-region"
+      },
+      "prov:used": [
+        {
+          "@id": "urn:voyager:prov:entity:fas-catalog:mage+geotag"
+        }
+      ],
+      "prov:generated": [
+        {
+          "@id": "urn:voyager:prov:entity:fas-catalog:mage+classify-region"
+        }
+      ],
+      "prov:startedAtTime": {
+        "@value": "2026-05-01T00:00:00Z",
+        "@type": "xsd:dateTime"
+      },
+      "prov:endedAtTime": {
+        "@value": "2026-05-01T00:00:01Z",
+        "@type": "xsd:dateTime"
+      },
+      "extra": {
+        "declarative": true,
+        "hadPrimarySource": "https://docs.google.com/presentation/d/1IybpPfUqDYji0ge-X0n165gMV8pU2UqlZQFKxIykk5k",
+        "deckSlides": "29",
+        "sourceUrl": "https://usda.mage.geointapps.com/api/events/{id}/observations",
+        "fasSource": "mage",
+        "chainIndex": 1,
+        "connectorSteps": [
+          "C1 login POST /auth/local/signin + device token POST /auth/token",
+          "C2 iterate events GET /api/events \u2192 per-event GET /api/events/{id}/observations?populate=true&states=active",
+          "C3 per-observation extract first `form` \u2192 map values against in-file enums: land_covers, crop_conditions, crop_stages, observed_health_conditions, soil_conditions, water_supplies, comments",
+          "C4 download first attachment \u2192 make_thumbnail (E:/voyager/voyager_data/meta/{repo}/thumb/...)",
+          "C5 attach event context (name/description) + GeoJSON geo pass-through",
+          "C6 sets grp_data_location_type='Geospatial Data' (in connector)"
+        ],
+        "externalDeps": [
+          "requests"
+        ]
+      }
+    },
+    {
+      "@context": {
+        "prov": "http://www.w3.org/ns/prov#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "voyager": "urn:voyager:prov:"
+      },
+      "@id": "urn:voyager:prov:activity:96d9ce3e037b6b5f30c9b401baf3c8fc",
+      "@type": "prov:Activity",
+      "prov:type": {
+        "@id": "https://voyager.ogc/prov/activity/field-normalize"
+      },
+      "prov:wasAssociatedWith": {
+        "@id": "urn:voyager:agent:fas-upstream:mage.field-normalize"
+      },
+      "prov:used": [
+        {
+          "@id": "urn:voyager:prov:entity:fas-catalog:mage+classify-region"
+        }
+      ],
+      "prov:generated": [
+        {
+          "@id": "urn:voyager:prov:entity:fas-catalog:mage"
+        }
+      ],
+      "prov:startedAtTime": {
+        "@value": "2026-05-01T00:00:00Z",
+        "@type": "xsd:dateTime"
+      },
+      "prov:endedAtTime": {
+        "@value": "2026-05-01T00:00:01Z",
+        "@type": "xsd:dateTime"
+      },
+      "extra": {
+        "declarative": true,
+        "hadPrimarySource": "https://docs.google.com/presentation/d/1IybpPfUqDYji0ge-X0n165gMV8pU2UqlZQFKxIykk5k",
+        "deckSlides": "29",
+        "sourceUrl": "https://usda.mage.geointapps.com/api/events/{id}/observations",
+        "fasSource": "mage",
+        "chainIndex": 2,
+        "connectorSteps": [
+          "C1 login POST /auth/local/signin + device token POST /auth/token",
+          "C2 iterate events GET /api/events \u2192 per-event GET /api/events/{id}/observations?populate=true&states=active",
+          "C3 per-observation extract first `form` \u2192 map values against in-file enums: land_covers, crop_conditions, crop_stages, observed_health_conditions, soil_conditions, water_supplies, comments",
+          "C4 download first attachment \u2192 make_thumbnail (E:/voyager/voyager_data/meta/{repo}/thumb/...)",
+          "C5 attach event context (name/description) + GeoJSON geo pass-through",
+          "C6 sets grp_data_location_type='Geospatial Data' (in connector)"
+        ],
+        "externalDeps": [
+          "requests"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,122 @@
+{
+  "@context": {
+    "prov": "http://www.w3.org/ns/prov#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "voyager": "urn:voyager:prov:"
+  },
+  "fasSource": "gain-legacy",
+  "fasSourceName": "GAIN (legacy CSV)",
+  "hadPrimarySource": {
+    "@id": "https://docs.google.com/presentation/d/1IybpPfUqDYji0ge-X0n165gMV8pU2UqlZQFKxIykk5k",
+    "deckSlides": "23"
+  },
+  "sourceUrl": "E:\\voyager\\fas_temp\\Reports from GAIN for Voyager Search.csv",
+  "externalDeps": [
+    "csv (stdlib)"
+  ],
+  "connectorSteps": [
+    "C1 csv.DictReader row iteration",
+    "C2 delta via utils.get_repo_ids",
+    "C3 job build with ReportLink \u2192 fh_url + Country \u2192 fs_country"
+  ],
+  "activities": [
+    {
+      "@context": {
+        "prov": "http://www.w3.org/ns/prov#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "voyager": "urn:voyager:prov:"
+      },
+      "@id": "urn:voyager:prov:activity:8f3432f4d920877038e5a0c9318f7fac",
+      "@type": "prov:Activity",
+      "prov:type": {
+        "@id": "https://voyager.ogc/prov/activity/geotag"
+      },
+      "prov:wasAssociatedWith": {
+        "@id": "urn:voyager:agent:fas-upstream:gain-legacy.geotag"
+      },
+      "prov:used": [
+        {
+          "@id": "urn:voyager:prov:entity:fas-source-raw:gain-legacy"
+        }
+      ],
+      "prov:generated": [
+        {
+          "@id": "urn:voyager:prov:entity:fas-catalog:gain-legacy+geotag"
+        }
+      ],
+      "prov:startedAtTime": {
+        "@value": "2026-05-01T00:00:00Z",
+        "@type": "xsd:dateTime"
+      },
+      "prov:endedAtTime": {
+        "@value": "2026-05-01T00:00:01Z",
+        "@type": "xsd:dateTime"
+      },
+      "extra": {
+        "declarative": true,
+        "hadPrimarySource": "https://docs.google.com/presentation/d/1IybpPfUqDYji0ge-X0n165gMV8pU2UqlZQFKxIykk5k",
+        "deckSlides": "23",
+        "sourceUrl": "E:\\voyager\\fas_temp\\Reports from GAIN for Voyager Search.csv",
+        "fasSource": "gain-legacy",
+        "chainIndex": 0,
+        "connectorSteps": [
+          "C1 csv.DictReader row iteration",
+          "C2 delta via utils.get_repo_ids",
+          "C3 job build with ReportLink \u2192 fh_url + Country \u2192 fs_country"
+        ],
+        "externalDeps": [
+          "csv (stdlib)"
+        ]
+      }
+    },
+    {
+      "@context": {
+        "prov": "http://www.w3.org/ns/prov#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "voyager": "urn:voyager:prov:"
+      },
+      "@id": "urn:voyager:prov:activity:2f7eb5f348f4c773d1d9e9d2c96699c9",
+      "@type": "prov:Activity",
+      "prov:type": {
+        "@id": "https://voyager.ogc/prov/activity/field-normalize"
+      },
+      "prov:wasAssociatedWith": {
+        "@id": "urn:voyager:agent:fas-upstream:gain-legacy.field-normalize"
+      },
+      "prov:used": [
+        {
+          "@id": "urn:voyager:prov:entity:fas-catalog:gain-legacy+geotag"
+        }
+      ],
+      "prov:generated": [
+        {
+          "@id": "urn:voyager:prov:entity:fas-catalog:gain-legacy"
+        }
+      ],
+      "prov:startedAtTime": {
+        "@value": "2026-05-01T00:00:00Z",
+        "@type": "xsd:dateTime"
+      },
+      "prov:endedAtTime": {
+        "@value": "2026-05-01T00:00:01Z",
+        "@type": "xsd:dateTime"
+      },
+      "extra": {
+        "declarative": true,
+        "hadPrimarySource": "https://docs.google.com/presentation/d/1IybpPfUqDYji0ge-X0n165gMV8pU2UqlZQFKxIykk5k",
+        "deckSlides": "23",
+        "sourceUrl": "E:\\voyager\\fas_temp\\Reports from GAIN for Voyager Search.csv",
+        "fasSource": "gain-legacy",
+        "chainIndex": 1,
+        "connectorSteps": [
+          "C1 csv.DictReader row iteration",
+          "C2 delta via utils.get_repo_ids",
+          "C3 job build with ReportLink \u2192 fh_url + Country \u2192 fs_country"
+        ],
+        "externalDeps": [
+          "csv (stdlib)"
+        ]
+      }
+    }
+  ]
+}

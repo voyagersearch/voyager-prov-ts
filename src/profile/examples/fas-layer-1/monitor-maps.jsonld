@@ -1,0 +1,240 @@
+{
+  "@context": {
+    "prov": "http://www.w3.org/ns/prov#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "voyager": "urn:voyager:prov:"
+  },
+  "fasSource": "monitor-maps",
+  "fasSourceName": "Monitor Maps (Cyclone + Flood)",
+  "hadPrimarySource": {
+    "@id": "https://docs.google.com/presentation/d/1IybpPfUqDYji0ge-X0n165gMV8pU2UqlZQFKxIykk5k",
+    "deckSlides": "26"
+  },
+  "sourceUrl": "https://ipad.fas.usda.gov/monitormaps/FloodMonitor and .../CycloneMonitor",
+  "externalDeps": [
+    "BeautifulSoup4",
+    "GCP Vision OCR"
+  ],
+  "connectorSteps": [
+    "C1 scrape flood regions + cyclone oceans/storms",
+    "C2 download PNG per event",
+    "C3 utils.run_image OCR",
+    "C4 parse 'Sources:' from OCR text \u2192 fss_sources[]",
+    "C5 utils.download_image \u2192 path_to_thumb",
+    "C6 sets grp_data_location_type='Geospatial Data' + grp_geospatial_data='Monitor Maps' (in connector)"
+  ],
+  "activities": [
+    {
+      "@context": {
+        "prov": "http://www.w3.org/ns/prov#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "voyager": "urn:voyager:prov:"
+      },
+      "@id": "urn:voyager:prov:activity:e55b2eb7a5422a6a7f3cb79ad57cff90",
+      "@type": "prov:Activity",
+      "prov:type": {
+        "@id": "https://voyager.ogc/prov/activity/geotag"
+      },
+      "prov:wasAssociatedWith": {
+        "@id": "urn:voyager:agent:fas-upstream:monitor-maps.geotag"
+      },
+      "prov:used": [
+        {
+          "@id": "urn:voyager:prov:entity:fas-source-raw:monitor-maps"
+        }
+      ],
+      "prov:generated": [
+        {
+          "@id": "urn:voyager:prov:entity:fas-catalog:monitor-maps+geotag"
+        }
+      ],
+      "prov:startedAtTime": {
+        "@value": "2026-05-01T00:00:00Z",
+        "@type": "xsd:dateTime"
+      },
+      "prov:endedAtTime": {
+        "@value": "2026-05-01T00:00:01Z",
+        "@type": "xsd:dateTime"
+      },
+      "extra": {
+        "declarative": true,
+        "hadPrimarySource": "https://docs.google.com/presentation/d/1IybpPfUqDYji0ge-X0n165gMV8pU2UqlZQFKxIykk5k",
+        "deckSlides": "26",
+        "sourceUrl": "https://ipad.fas.usda.gov/monitormaps/FloodMonitor and .../CycloneMonitor",
+        "fasSource": "monitor-maps",
+        "chainIndex": 0,
+        "connectorSteps": [
+          "C1 scrape flood regions + cyclone oceans/storms",
+          "C2 download PNG per event",
+          "C3 utils.run_image OCR",
+          "C4 parse 'Sources:' from OCR text \u2192 fss_sources[]",
+          "C5 utils.download_image \u2192 path_to_thumb",
+          "C6 sets grp_data_location_type='Geospatial Data' + grp_geospatial_data='Monitor Maps' (in connector)"
+        ],
+        "externalDeps": [
+          "BeautifulSoup4",
+          "GCP Vision OCR"
+        ]
+      }
+    },
+    {
+      "@context": {
+        "prov": "http://www.w3.org/ns/prov#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "voyager": "urn:voyager:prov:"
+      },
+      "@id": "urn:voyager:prov:activity:b524a202c741e8c467cdb1831a2c0231",
+      "@type": "prov:Activity",
+      "prov:type": {
+        "@id": "https://voyager.ogc/prov/activity/classify-region"
+      },
+      "prov:wasAssociatedWith": {
+        "@id": "urn:voyager:agent:fas-upstream:monitor-maps.classify-region"
+      },
+      "prov:used": [
+        {
+          "@id": "urn:voyager:prov:entity:fas-catalog:monitor-maps+geotag"
+        }
+      ],
+      "prov:generated": [
+        {
+          "@id": "urn:voyager:prov:entity:fas-catalog:monitor-maps+classify-region"
+        }
+      ],
+      "prov:startedAtTime": {
+        "@value": "2026-05-01T00:00:00Z",
+        "@type": "xsd:dateTime"
+      },
+      "prov:endedAtTime": {
+        "@value": "2026-05-01T00:00:01Z",
+        "@type": "xsd:dateTime"
+      },
+      "extra": {
+        "declarative": true,
+        "hadPrimarySource": "https://docs.google.com/presentation/d/1IybpPfUqDYji0ge-X0n165gMV8pU2UqlZQFKxIykk5k",
+        "deckSlides": "26",
+        "sourceUrl": "https://ipad.fas.usda.gov/monitormaps/FloodMonitor and .../CycloneMonitor",
+        "fasSource": "monitor-maps",
+        "chainIndex": 1,
+        "connectorSteps": [
+          "C1 scrape flood regions + cyclone oceans/storms",
+          "C2 download PNG per event",
+          "C3 utils.run_image OCR",
+          "C4 parse 'Sources:' from OCR text \u2192 fss_sources[]",
+          "C5 utils.download_image \u2192 path_to_thumb",
+          "C6 sets grp_data_location_type='Geospatial Data' + grp_geospatial_data='Monitor Maps' (in connector)"
+        ],
+        "externalDeps": [
+          "BeautifulSoup4",
+          "GCP Vision OCR"
+        ]
+      }
+    },
+    {
+      "@context": {
+        "prov": "http://www.w3.org/ns/prov#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "voyager": "urn:voyager:prov:"
+      },
+      "@id": "urn:voyager:prov:activity:42494facbd7b39f2a444934226eee91f",
+      "@type": "prov:Activity",
+      "prov:type": {
+        "@id": "https://voyager.ogc/prov/activity/ocr"
+      },
+      "prov:wasAssociatedWith": {
+        "@id": "urn:voyager:agent:fas-upstream:monitor-maps.ocr"
+      },
+      "prov:used": [
+        {
+          "@id": "urn:voyager:prov:entity:fas-catalog:monitor-maps+classify-region"
+        }
+      ],
+      "prov:generated": [
+        {
+          "@id": "urn:voyager:prov:entity:fas-catalog:monitor-maps+ocr"
+        }
+      ],
+      "prov:startedAtTime": {
+        "@value": "2026-05-01T00:00:00Z",
+        "@type": "xsd:dateTime"
+      },
+      "prov:endedAtTime": {
+        "@value": "2026-05-01T00:00:01Z",
+        "@type": "xsd:dateTime"
+      },
+      "extra": {
+        "declarative": true,
+        "hadPrimarySource": "https://docs.google.com/presentation/d/1IybpPfUqDYji0ge-X0n165gMV8pU2UqlZQFKxIykk5k",
+        "deckSlides": "26",
+        "sourceUrl": "https://ipad.fas.usda.gov/monitormaps/FloodMonitor and .../CycloneMonitor",
+        "fasSource": "monitor-maps",
+        "chainIndex": 2,
+        "connectorSteps": [
+          "C1 scrape flood regions + cyclone oceans/storms",
+          "C2 download PNG per event",
+          "C3 utils.run_image OCR",
+          "C4 parse 'Sources:' from OCR text \u2192 fss_sources[]",
+          "C5 utils.download_image \u2192 path_to_thumb",
+          "C6 sets grp_data_location_type='Geospatial Data' + grp_geospatial_data='Monitor Maps' (in connector)"
+        ],
+        "externalDeps": [
+          "BeautifulSoup4",
+          "GCP Vision OCR"
+        ]
+      }
+    },
+    {
+      "@context": {
+        "prov": "http://www.w3.org/ns/prov#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "voyager": "urn:voyager:prov:"
+      },
+      "@id": "urn:voyager:prov:activity:40d491950e52500a870a83edab290ac7",
+      "@type": "prov:Activity",
+      "prov:type": {
+        "@id": "https://voyager.ogc/prov/activity/field-normalize"
+      },
+      "prov:wasAssociatedWith": {
+        "@id": "urn:voyager:agent:fas-upstream:monitor-maps.field-normalize"
+      },
+      "prov:used": [
+        {
+          "@id": "urn:voyager:prov:entity:fas-catalog:monitor-maps+ocr"
+        }
+      ],
+      "prov:generated": [
+        {
+          "@id": "urn:voyager:prov:entity:fas-catalog:monitor-maps"
+        }
+      ],
+      "prov:startedAtTime": {
+        "@value": "2026-05-01T00:00:00Z",
+        "@type": "xsd:dateTime"
+      },
+      "prov:endedAtTime": {
+        "@value": "2026-05-01T00:00:01Z",
+        "@type": "xsd:dateTime"
+      },
+      "extra": {
+        "declarative": true,
+        "hadPrimarySource": "https://docs.google.com/presentation/d/1IybpPfUqDYji0ge-X0n165gMV8pU2UqlZQFKxIykk5k",
+        "deckSlides": "26",
+        "sourceUrl": "https://ipad.fas.usda.gov/monitormaps/FloodMonitor and .../CycloneMonitor",
+        "fasSource": "monitor-maps",
+        "chainIndex": 3,
+        "connectorSteps": [
+          "C1 scrape flood regions + cyclone oceans/storms",
+          "C2 download PNG per event",
+          "C3 utils.run_image OCR",
+          "C4 parse 'Sources:' from OCR text \u2192 fss_sources[]",
+          "C5 utils.download_image \u2192 path_to_thumb",
+          "C6 sets grp_data_location_type='Geospatial Data' + grp_geospatial_data='Monitor Maps' (in connector)"
+        ],
+        "externalDeps": [
+          "BeautifulSoup4",
+          "GCP Vision OCR"
+        ]
+      }
+    }
+  ]
+}
