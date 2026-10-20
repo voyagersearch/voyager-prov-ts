@@ -1,0 +1,245 @@
+{
+  "@context": {
+    "prov": "http://www.w3.org/ns/prov#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "voyager": "urn:voyager:prov:"
+  },
+  "fasSource": "commodity-explorer",
+  "fasSourceName": "Commodity Explorer (country \u00d7 commodity \u00d7 rank)",
+  "hadPrimarySource": {
+    "@id": "https://docs.google.com/presentation/d/1IybpPfUqDYji0ge-X0n165gMV8pU2UqlZQFKxIykk5k",
+    "deckSlides": "25"
+  },
+  "sourceUrl": "https://ipadinternalportal.fas.usda.gov/cropview/commodityView.aspx?cropid={code}&rankby={type}&startrow={n}",
+  "externalDeps": [
+    "BeautifulSoup4",
+    "Voyager placefinder Solr"
+  ],
+  "connectorSteps": [
+    "C1 triple loop rank_type \u00d7 12 commodities \u00d7 startrow (1,11,21,31)",
+    "C2 BS4 scrape rank table",
+    "C3 grouper() zip production/percent/rank triples with country rows",
+    "C4 top-state list from subRegionList (Production only)",
+    "C5 download crop_map image \u2192 path_to_thumb + hasThumb",
+    "C6 placefinder geo \u2192 spatial.shape",
+    "C7 sets grp_data_location_type='Geospatial Data' (in connector)"
+  ],
+  "activities": [
+    {
+      "@context": {
+        "prov": "http://www.w3.org/ns/prov#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "voyager": "urn:voyager:prov:"
+      },
+      "@id": "urn:voyager:prov:activity:6020bc8b0454e5009e73cb92a3d83f60",
+      "@type": "prov:Activity",
+      "prov:type": {
+        "@id": "https://voyager.ogc/prov/activity/geotag"
+      },
+      "prov:wasAssociatedWith": {
+        "@id": "urn:voyager:agent:fas-upstream:commodity-explorer.geotag"
+      },
+      "prov:used": [
+        {
+          "@id": "urn:voyager:prov:entity:fas-source-raw:commodity-explorer"
+        }
+      ],
+      "prov:generated": [
+        {
+          "@id": "urn:voyager:prov:entity:fas-catalog:commodity-explorer+geotag"
+        }
+      ],
+      "prov:startedAtTime": {
+        "@value": "2026-05-01T00:00:00Z",
+        "@type": "xsd:dateTime"
+      },
+      "prov:endedAtTime": {
+        "@value": "2026-05-01T00:00:01Z",
+        "@type": "xsd:dateTime"
+      },
+      "extra": {
+        "declarative": true,
+        "hadPrimarySource": "https://docs.google.com/presentation/d/1IybpPfUqDYji0ge-X0n165gMV8pU2UqlZQFKxIykk5k",
+        "deckSlides": "25",
+        "sourceUrl": "https://ipadinternalportal.fas.usda.gov/cropview/commodityView.aspx?cropid={code}&rankby={type}&startrow={n}",
+        "fasSource": "commodity-explorer",
+        "chainIndex": 0,
+        "connectorSteps": [
+          "C1 triple loop rank_type \u00d7 12 commodities \u00d7 startrow (1,11,21,31)",
+          "C2 BS4 scrape rank table",
+          "C3 grouper() zip production/percent/rank triples with country rows",
+          "C4 top-state list from subRegionList (Production only)",
+          "C5 download crop_map image \u2192 path_to_thumb + hasThumb",
+          "C6 placefinder geo \u2192 spatial.shape",
+          "C7 sets grp_data_location_type='Geospatial Data' (in connector)"
+        ],
+        "externalDeps": [
+          "BeautifulSoup4",
+          "Voyager placefinder Solr"
+        ]
+      }
+    },
+    {
+      "@context": {
+        "prov": "http://www.w3.org/ns/prov#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "voyager": "urn:voyager:prov:"
+      },
+      "@id": "urn:voyager:prov:activity:14b7a8e55604a8591b54591006424d54",
+      "@type": "prov:Activity",
+      "prov:type": {
+        "@id": "https://voyager.ogc/prov/activity/classify-commodity"
+      },
+      "prov:wasAssociatedWith": {
+        "@id": "urn:voyager:agent:fas-upstream:commodity-explorer.classify-commodity"
+      },
+      "prov:used": [
+        {
+          "@id": "urn:voyager:prov:entity:fas-catalog:commodity-explorer+geotag"
+        }
+      ],
+      "prov:generated": [
+        {
+          "@id": "urn:voyager:prov:entity:fas-catalog:commodity-explorer+classify-commodity"
+        }
+      ],
+      "prov:startedAtTime": {
+        "@value": "2026-05-01T00:00:00Z",
+        "@type": "xsd:dateTime"
+      },
+      "prov:endedAtTime": {
+        "@value": "2026-05-01T00:00:01Z",
+        "@type": "xsd:dateTime"
+      },
+      "extra": {
+        "declarative": true,
+        "hadPrimarySource": "https://docs.google.com/presentation/d/1IybpPfUqDYji0ge-X0n165gMV8pU2UqlZQFKxIykk5k",
+        "deckSlides": "25",
+        "sourceUrl": "https://ipadinternalportal.fas.usda.gov/cropview/commodityView.aspx?cropid={code}&rankby={type}&startrow={n}",
+        "fasSource": "commodity-explorer",
+        "chainIndex": 1,
+        "connectorSteps": [
+          "C1 triple loop rank_type \u00d7 12 commodities \u00d7 startrow (1,11,21,31)",
+          "C2 BS4 scrape rank table",
+          "C3 grouper() zip production/percent/rank triples with country rows",
+          "C4 top-state list from subRegionList (Production only)",
+          "C5 download crop_map image \u2192 path_to_thumb + hasThumb",
+          "C6 placefinder geo \u2192 spatial.shape",
+          "C7 sets grp_data_location_type='Geospatial Data' (in connector)"
+        ],
+        "externalDeps": [
+          "BeautifulSoup4",
+          "Voyager placefinder Solr"
+        ]
+      }
+    },
+    {
+      "@context": {
+        "prov": "http://www.w3.org/ns/prov#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "voyager": "urn:voyager:prov:"
+      },
+      "@id": "urn:voyager:prov:activity:01d8ace529aaea7a3561a810878b6e36",
+      "@type": "prov:Activity",
+      "prov:type": {
+        "@id": "https://voyager.ogc/prov/activity/classify-region"
+      },
+      "prov:wasAssociatedWith": {
+        "@id": "urn:voyager:agent:fas-upstream:commodity-explorer.classify-region"
+      },
+      "prov:used": [
+        {
+          "@id": "urn:voyager:prov:entity:fas-catalog:commodity-explorer+classify-commodity"
+        }
+      ],
+      "prov:generated": [
+        {
+          "@id": "urn:voyager:prov:entity:fas-catalog:commodity-explorer+classify-region"
+        }
+      ],
+      "prov:startedAtTime": {
+        "@value": "2026-05-01T00:00:00Z",
+        "@type": "xsd:dateTime"
+      },
+      "prov:endedAtTime": {
+        "@value": "2026-05-01T00:00:01Z",
+        "@type": "xsd:dateTime"
+      },
+      "extra": {
+        "declarative": true,
+        "hadPrimarySource": "https://docs.google.com/presentation/d/1IybpPfUqDYji0ge-X0n165gMV8pU2UqlZQFKxIykk5k",
+        "deckSlides": "25",
+        "sourceUrl": "https://ipadinternalportal.fas.usda.gov/cropview/commodityView.aspx?cropid={code}&rankby={type}&startrow={n}",
+        "fasSource": "commodity-explorer",
+        "chainIndex": 2,
+        "connectorSteps": [
+          "C1 triple loop rank_type \u00d7 12 commodities \u00d7 startrow (1,11,21,31)",
+          "C2 BS4 scrape rank table",
+          "C3 grouper() zip production/percent/rank triples with country rows",
+          "C4 top-state list from subRegionList (Production only)",
+          "C5 download crop_map image \u2192 path_to_thumb + hasThumb",
+          "C6 placefinder geo \u2192 spatial.shape",
+          "C7 sets grp_data_location_type='Geospatial Data' (in connector)"
+        ],
+        "externalDeps": [
+          "BeautifulSoup4",
+          "Voyager placefinder Solr"
+        ]
+      }
+    },
+    {
+      "@context": {
+        "prov": "http://www.w3.org/ns/prov#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "voyager": "urn:voyager:prov:"
+      },
+      "@id": "urn:voyager:prov:activity:8628812445dd4cb42919000c81b7b745",
+      "@type": "prov:Activity",
+      "prov:type": {
+        "@id": "https://voyager.ogc/prov/activity/field-normalize"
+      },
+      "prov:wasAssociatedWith": {
+        "@id": "urn:voyager:agent:fas-upstream:commodity-explorer.field-normalize"
+      },
+      "prov:used": [
+        {
+          "@id": "urn:voyager:prov:entity:fas-catalog:commodity-explorer+classify-region"
+        }
+      ],
+      "prov:generated": [
+        {
+          "@id": "urn:voyager:prov:entity:fas-catalog:commodity-explorer"
+        }
+      ],
+      "prov:startedAtTime": {
+        "@value": "2026-05-01T00:00:00Z",
+        "@type": "xsd:dateTime"
+      },
+      "prov:endedAtTime": {
+        "@value": "2026-05-01T00:00:01Z",
+        "@type": "xsd:dateTime"
+      },
+      "extra": {
+        "declarative": true,
+        "hadPrimarySource": "https://docs.google.com/presentation/d/1IybpPfUqDYji0ge-X0n165gMV8pU2UqlZQFKxIykk5k",
+        "deckSlides": "25",
+        "sourceUrl": "https://ipadinternalportal.fas.usda.gov/cropview/commodityView.aspx?cropid={code}&rankby={type}&startrow={n}",
+        "fasSource": "commodity-explorer",
+        "chainIndex": 3,
+        "connectorSteps": [
+          "C1 triple loop rank_type \u00d7 12 commodities \u00d7 startrow (1,11,21,31)",
+          "C2 BS4 scrape rank table",
+          "C3 grouper() zip production/percent/rank triples with country rows",
+          "C4 top-state list from subRegionList (Production only)",
+          "C5 download crop_map image \u2192 path_to_thumb + hasThumb",
+          "C6 placefinder geo \u2192 spatial.shape",
+          "C7 sets grp_data_location_type='Geospatial Data' (in connector)"
+        ],
+        "externalDeps": [
+          "BeautifulSoup4",
+          "Voyager placefinder Solr"
+        ]
+      }
+    }
+  ]
+}
